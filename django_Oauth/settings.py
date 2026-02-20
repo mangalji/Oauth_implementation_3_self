@@ -86,12 +86,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # all-auth settings:
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME = True
-ACCOUNT_EMAIL_VERIFICATION = "none"
-
-
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+SOCIALACCOUNT_AUTO_SIGNUP = True   
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,7 +135,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -186,8 +188,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 ACCOUNT_LOGIN_METHODS = {"email"}
 
-LOGIN_REDIRECT_URL = "/api/google/success/"
+LOGIN_REDIRECT_URL = "http://127.0.0.1:8000/api/google/success/"
 LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000/accounts/google/login/"
 
+ACCOUNT_ADAPTER = "accounts.adapters.AccountAdapter"
 SOCIALACCOUNT_ADAPTER = "accounts.adapters.SocialAdapter"
-

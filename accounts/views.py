@@ -41,15 +41,43 @@ class LogoutView(APIView):
         return Response({"msg":"logout successfull."})
     
 
+# class GoogleLoginSuccessView(APIView):
+
+#     # def get(self,request):
+#     #     tokens = request.session.get("jwt_tokens")
+
+#     #     if not tokens:
+#     #         return Response({"error":"Tokens are not found"},status=400)
+#     #     return Response(tokens)
+    
+
+#     def get(self,request):
+        
+#         # access = request.GET.get("access")
+#         # refresh = request.GET.get("refresh")
+
+#         # if not access:
+#         #     return Response({"error":"tokens are not found"},status=400)
+
+#         # return Response({
+#         #     "access":access,
+#         #     "refresh":refresh
+#         # })
+#         return Response({"msg":"login successfull"})
+
+
+
+
 class GoogleLoginSuccessView(APIView):
+    def get(self, request):
 
-    def get(self,request):
-        tokens = request.session.get("jwt_tokens")
+        access = request.session.get("access")
+        refresh = request.session.get("refresh")
 
-        if not tokens:
-            return Response({"error":"Tokens are not found"},status=400)
-        return Response(tokens)
-    
+        if not access:
+            return Response({"error": "tokens not found"}, status=400)
 
-
-    
+        return Response({
+            "access": access,
+            "refresh": refresh
+        })
