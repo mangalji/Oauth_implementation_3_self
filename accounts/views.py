@@ -30,6 +30,17 @@ def profile_view(request):
         "id":user.id
     })
 
+# class ProfileView(APIView):
+#     permission_classes = [IsAuthenticated]
+
+#     def get(self, request):
+#         user = request.user
+#         return Response({
+#             "username": user.username,
+#             "email": user.email,
+#             "id": user.id
+#         })
+
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
