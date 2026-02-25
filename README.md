@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 now bring that special utensil you'll use to make this recipe means the Google OAuth client id and secret.
 for this you need to go to :
-> [Google OAuth provider](https://console.cloud.google.com/).
+> <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>.
 
 There, select a new project with **no organization**. Then search got "**Credentials**" in the search box. You'll see an option called **New Credentials** - click on it. If it's already created, that's fine. If not, see on the left side bar, click on **Overview**, and then click on the **Get Started**. After that, select **External**, enter your Email id, and then choose your application type.
 
